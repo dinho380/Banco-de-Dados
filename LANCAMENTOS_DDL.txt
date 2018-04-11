@@ -1,0 +1,29 @@
+CREATE DATABASE lancamentos_db default charset=utf8;
+
+USE lancamentos_db;	
+
+	CREATE TABLE pessoas(id bigint primary key auto_increment, nome varchar(45) NOT NULL, ativo tinyint(4) NOT NULL)Engine=Innodb default charset=utf8;
+
+	CREATE TABLE contatos(id bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,nome VARCHAR(255) NOT NULL UNIQUE, email VARCHAR(255) NOT NULL UNIQUE, telefone VARCHAR(255) NOT NULL,pessoa_id bigint NOT NULL, FOREIGN KEY(pessoa_id) references pessoas(id))Engine=Innodb default charset=utf8;
+	ALTER TABLE contatos ADD CONSTRAINT fk__contatos_pessoas FOREIGN KEY(pessoa_id) REFERENCES pessoas(id) ON DELETE CASCADE;
+
+	CREATE TABLE estados(sigla VARCHAR(2) PRIMARY KEY NOT NULL, nome VARCHAR(255) UNIQUE) Engine=Innodb default charset=utf8;
+
+	CREATE TABLE cidades(id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, nome VARCHAR(255) NOT NULL UNIQUE, estado_sigla VARCHAR(2) NOT NULL)Engine=Innodb default charset=utf8;
+	ALTER TABLE cidades ADD CONSTRAINT fk_cidades_estados FOREIGN KEY (estado_sigla) REFERENCES estados(sigla);
+
+	CREATE TABLE enderecos(logradouro VARCHAR(255) NOT NULL, numero VARCHAR(45) NOT NULL, complemento VARCHAR(45) NOT NULL, cep VARCHAR(45) NOT NULL, pessoa_id BIGINT PRIMARY KEY NOT NULL, cidade_id BIGINT NOT NULL, FOREIGN KEY(pessoa_id) REFERENCES pessoas(id),FOREIGN KEY(cidade_id) REFERENCES cidades(id)) Engine=Innodb default charset=utf8;
+	ALTER TABLE enderecos ADD CONSTRAINT fk_enderecos_pessoas FOREIGN KEY (pessoa_id) REFERENCES pessoas(id) ON DELETE CASCADE;
+	ALTER TABLE enderecos ADD CONSTRAINT fk__enderecos_cidades FOREIGN KEY (cidade_id) REFERENCES cidades(id);
+
+	CREATE TABLE categorias(id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY, descricao VARCHAR(100) NOT NULL);
+
+	CREATE TABLE lancamentos(id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,descricao VARCHAR (255) NOT NULL, dt_vencimento DATE NOT NULL, dt_pagamento DATE, valor DECIMAL(10,2) UNSIGNED NOT NULL, observacao TEXT, tipo ENUM('RECEITA','DESPESA') NOT NULL, pessoa_id BIGINT NOT NULL, categoria_id BIGINT NOT NULL, FOREIGN KEY (pessoa_id) REFERENCES pessoas(id), FOREIGN KEY (categoria_id) REFERENCES categorias(id)) Engine=Innodb default charset=utf8;
+	ALTER TABLE lancamentos ADD CONSTRAINT fk_lancamentos_pessoas FOREIGN KEY (pessoa_id) REFERENCES pessoas(id) ON DELETE CASCADE;
+	ALTER TABLE lancamentos ADD CONSTRAINT fk_lancamentos_categorias FOREIGN KEY (categoria_id) REFERENCES categorias(id);
+
+
+
+
+
+

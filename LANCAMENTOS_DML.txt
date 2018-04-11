@@ -1,0 +1,181 @@
+/*-----------------------------------------------------
+---------------- LANCAMENTOS DML ----------------------
+-------------------------------------------------------*/
+
+USE lancamentos_db;
+
+/*--Tabelas Pessoas--*/
+INSERT INTO pessoas(nome,ativo) VALUES("João da Silva", 1);
+INSERT INTO pessoas(nome,ativo) VALUES("Maria das Graças", 1);
+INSERT INTO pessoas(nome,ativo) VALUES("José Sebastião", 1);
+INSERT INTO pessoas(nome,ativo) VALUES("Antonio Nunes", 1);
+INSERT INTO pessoas(nome,ativo) VALUES("Ester Ramires", 1);
+
+
+/*--Tabelas contatos (João da Silva)--*/
+INSERT INTO contatos(nome,email,telefone,pessoa_id) VALUES("Tomás Melo","TomasMeloGoncalves@jourrapide.com","(00) 0000-0000",1);
+INSERT INTO contatos(nome,email,telefone,pessoa_id) VALUES("Isabella Sousa","IsabellaSousaCastro@rhyta.com","(11) 1111-1111",1);
+INSERT INTO contatos(nome,email,telefone,pessoa_id) VALUES("Vitor Silva","VitorSilvaMartins@rhyta.com","(22) 2222-2222",1);
+INSERT INTO contatos(nome,email,telefone,pessoa_id) VALUES("Bianca Rocha","BiancaRochaOliveira@rhyta.com","(33) 3333-3333",1);
+INSERT INTO contatos(nome,email,telefone,pessoa_id) VALUES("Arthur Souza","ArthurSouzaBarbosa@rhyta.com","(44) 4444-4444",1);
+INSERT INTO contatos(nome,email,telefone,pessoa_id) VALUES("Pedro Rocha","PedroRochaRibeiro@dayrep.com","(55) 5555-5555",1);
+
+/*--Tabelas Estados--*/
+INSERT INTO estados(sigla,nome) VALUES("BA","Bahia");
+INSERT INTO estados(sigla,nome) VALUES("SP","São Paulo");
+INSERT INTO estados(sigla,nome) VALUES("RJ","Rio de Janeiro");
+INSERT INTO estados(sigla,nome) VALUES("CE","Ceará");
+INSERT INTO estados(sigla,nome) VALUES("MG","Minas Gerais");
+
+
+/*--Tabelas Cidades(Bahia)--*/
+INSERT INTO cidades(nome,estado_sigla) VALUES("Salvador","BA");
+INSERT INTO cidades(nome,estado_sigla) VALUES("Feira de Santana","BA");
+INSERT INTO cidades(nome,estado_sigla) VALUES("Camaçari","BA");
+INSERT INTO cidades(nome,estado_sigla) VALUES("Juazeiro","BA");
+INSERT INTO cidades(nome,estado_sigla) VALUES("Vitoria da Conquista","BA");
+
+/*--Tabelas Categoria--*/
+INSERT INTO categorias(descricao) Values("Feira");
+INSERT INTO categorias(descricao) Values("Salário");
+INSERT INTO categorias(descricao) Values("Seguro");
+INSERT INTO categorias(descricao) Values("Bico");
+INSERT INTO categorias(descricao) Values("Casa");
+INSERT INTO categorias(descricao) Values("Combustivel");
+INSERT INTO categorias(descricao) Values("Academia");
+
+/*--Tabela Endereços --*/
+/*--Tabela Endereços --*/
+
+INSERT INTO enderecos(logradouro,numero,complemento, cep,pessoa_id,cidade_id) VALUES("Rua dos Passaros","171","Onde canta o sabiá","45000-160",1,2);
+INSERT INTO enderecos(logradouro,numero,complemento, cep,pessoa_id,cidade_id) VALUES("Rua dos Cachorros","168","proxima à esquina das pulgas","45000-161",2,2);
+INSERT INTO enderecos(logradouro,numero,complemento, cep,pessoa_id,cidade_id) VALUES("Rua Teixara","20","Casa Marron","46790-000",3,5);
+INSERT INTO enderecos(logradouro,numero,complemento, cep,pessoa_id,cidade_id) VALUES("Avenida Olivia","68","Muito Buraco","46750-010",4,5);
+INSERT INTO enderecos(logradouro,numero,complemento, cep,pessoa_id,cidade_id) VALUES("Rua Benedito","79","Algum lugar","47000-214",5,3);
+
+/*--Tabela Lancamentos(Janeiro 2018/João da Silva)--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-01-10","2018-01-15",85.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-01-10","2018-01-15",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-01-05","2018-01-12",1000.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Seguro","2018-01-20","2018-01-15",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-01-15","2018-01-15",600.00,"","DESPESA",1,1);
+
+/*--Tabela Lancamentos(Fevereiro 2018/Joao da Silva) --*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-02-10","2018-02-09",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-02-05","2018-02-05",1000.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-02-20","2018-02-15",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("NETFLIX","2018-02-15","2018-02-15",39.90,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-02-15","2018-02-15",50.90,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-02-15","2018-02-20",600.00,"","DESPESA",1,1);
+
+/*---Tabela Lancamentos( Março 2018/Joao da Silva)---*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-03-05","2018-03-04",1000.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Extra","2018-03-15","2018-03-15",600.00,"","RECEITA",1,4);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-03-10","2018-03-09",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-03-20","2018-03-18",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-03-17","2018-03-17",600.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-03-10","2018-03-17",46.00,"","DESPESA",1,5);
+
+
+/*---Tabela Lancamentos(Abril 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-04-05","2018-04-05",1000.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-04-10","2018-04-09",550.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-04-10","2018-04-10",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-04-20","2018-04-10",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-04-17","2018-04-10",30.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-04-30","",85.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Maio 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-05-05","",1000.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-05-17","",650.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-05-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-05-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-05-13","",60.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-05-30","",100.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Junho 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-06-05","",1200.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-06-17","",400.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-06-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-06-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-06-18","",80.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-06-30","",98.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Julho 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-07-05","",1200.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-07-15","",500.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-07-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-07-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-07-17","",50.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-07-30","",100.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Agosto 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-08-05","",1200.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-08-14","",550.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-08-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-08-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-08-18","",50.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-08-30","",100.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Setembro 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-09-05","",1200.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-09-14","",600.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-09-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-09-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-09-18","",55.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-09-30","",100.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Outubro 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-10-05","",1200.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-10-15","",600.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-10-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-10-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-10-17","",50.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-10-30","",100.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Novembro 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-11-05","",1200.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-11-15","",600.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-11-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-11-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-11-17","",55.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-11-30","",90.00,"","DESPESA",1,6);
+
+
+/*---Tabela Lancamentos(Dezembro 2018/ Joao da Silva--*/
+
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Salário","2018-12-05","",1200.00,"","RECEITA",1,2);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Comida","2018-12-13","",700.00,"","DESPESA",1,1);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Aluguel","2018-12-10","",200.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-12-20","",105.00,"","DESPESA",1,3);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Luz","2018-12-17","",50.00,"","DESPESA",1,5);
+INSERT INTO lancamentos(descricao,dt_vencimento,dt_pagamento,valor,observacao,tipo,pessoa_id,categoria_id) VALUES("Carro","2018-12-30","",200.00,"","DESPESA",1,6);
+
+
+
+
+
+
+
+
+
+
+
