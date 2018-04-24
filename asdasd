@@ -1,0 +1,31 @@
+alter table pessoas add column cpf varchar(255);
+
+update pessoas set cpf="111.111.111-11" where id=1;
+update pessoas set cpf="222.222.222-22" where id=2;
+update pessoas set cpf="333.333.333-33" where id=3;
+update pessoas set cpf="444.444.444-44" where id=4;
+update pessoas set cpf="555.555.555-55" where id=5;
+
+alter table contatos drop foreign key fk__contatos_pessoas;
+alter table contatos drop foreign key contatos_ibfk_1;
+
+alter table enderecos drop foreign key enderecos_ibfk_1;
+alter table enderecos drop foreign key fk_enderecos_pessoas;
+
+alter table lancamentos drop foreign key fk_lancamentos_pessoas;
+alter table lancamentos drop foreign key lancamentos_ibfk_1;
+
+
+alter table pessoas modify column id bigint not null;
+alter table pessoas drop primary key;
+alter table pessoas add primary key(cpf);
+
+
+alter table contatos add pessoa_cpf varchar(20) not null;
+alter table contatos add constraint fk_pessoa_cpf foreign key (pessoa_cpf) references pessoas(cpf) on delete cascade on update cascade;
+
+alter table lancamentos add pessoa_cpf varchar(20) not null;
+alter table lancamentos add constraint fk_lancamentos_cpf foreign key (pessoa_cpf) references pessoas(cpf) on delete cascade on update cascade;
+
+alter table enderecos add pessoa_cpf varchar(20) not null;
+alter table enderecos add constraint fk_enderecos_cpf foreign key (pessoa_cpf) references pessoas(cpf) on delete cascade on update cascade;
